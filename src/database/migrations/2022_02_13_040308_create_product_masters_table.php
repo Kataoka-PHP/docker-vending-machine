@@ -18,11 +18,11 @@ class CreateProductMastersTable extends Migration
             $table->string('product_name');
             $table->string('image');
             $table->integer('price');
-            $table->dateTime('sales_start_time');
-            $table->dateTime('sales_end_time');
+            $table->dateTime('sales_start_time')->nullable();
+            $table->dateTime('sales_end_time')->nullable();
             $table->integer('display_order');
-            $table->dateTime('registration_time');
-            $table->dateTime('update_time');
+            $table->dateTime('registration_time')->nullable();
+            $table->dateTime('update_time')->nullable();
             $table->timestamps();
 
             $table->softDeletes();

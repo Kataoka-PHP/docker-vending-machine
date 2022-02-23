@@ -18,7 +18,7 @@ class CreateSalesLogTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('product_masters')->onDelete('cascade');
             $table->integer('purchase_price');
-            $table->dateTime('purchase_time');
+            $table->dateTime('purchase_time')->nullable();
             $table->timestamps();
         });
     }
