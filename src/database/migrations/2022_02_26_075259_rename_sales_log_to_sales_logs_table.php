@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class RenameProductMastersToProductMasterTable extends Migration
+class RenameSalesLogToSalesLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class RenameProductMastersToProductMasterTable extends Migration
      */
     public function up()
     {
-        Schema::rename('product_masters', 'product_master');
+        Schema::rename('sales_log', 'sales_logs');
     }
-    
 
     /**
      * Reverse the migrations.
@@ -24,6 +23,6 @@ class RenameProductMastersToProductMasterTable extends Migration
      */
     public function down()
     {
-        Schema::rename('product_master','product_masters');
+        Schema::rename('sales_logs', 'sales_log');
     }
 }

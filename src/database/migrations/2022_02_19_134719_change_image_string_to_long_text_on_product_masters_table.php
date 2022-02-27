@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeImageStringToLongTextOnProductMasterTable extends Migration
+class ChangeImageStringToLongTextOnProductMastersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class ChangeImageStringToLongTextOnProductMasterTable extends Migration
      */
     public function up()
     {
-        Schema::table('product_master', function (Blueprint $table) {
+        Schema::table('product_masters', function (Blueprint $table) {
             $table->longText('image')->change();
         });
     }
@@ -25,7 +25,7 @@ class ChangeImageStringToLongTextOnProductMasterTable extends Migration
      */
     public function down()
     {
-        Schema::table('product_master', function (Blueprint $table) {
+        Schema::table('product_masters', function (Blueprint $table) {
             $table->string('image')->change();
         });
     }
