@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class SalesLogTableSeeder extends Seeder
+class SalesLogsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,16 +15,16 @@ class SalesLogTableSeeder extends Seeder
             'product_id' => 1,
             'purchase_price' => 200,
         ];
-        DB::table('sales_log')->insert($param);
+        DB::table('sales_logs')->insert($param);
         $param = [
             'product_id' => 2,
             'purchase_price' => 420,
         ];
-        DB::table('sales_log')->insert($param);
+        DB::table('sales_logs')->insert($param);
         $param = [
             'product_id' => 3,
             'purchase_price' => 3800,
         ];
-        DB::table('sales_log')->insert($param);
+        DB::table('sales_logs')->insert($param);
     }
 }
