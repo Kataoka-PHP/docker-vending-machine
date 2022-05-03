@@ -26,7 +26,7 @@ class ChangeImageStringToLongTextOnProductMastersTable extends Migration
     public function down()
     {
         Schema::table('product_masters', function (Blueprint $table) {
-            $table->string('image')->change();
+            $table->longText('image')->change();
         });
     }
 }
