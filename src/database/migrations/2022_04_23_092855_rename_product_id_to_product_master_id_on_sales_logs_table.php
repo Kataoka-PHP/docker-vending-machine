@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeImageStringToLongTextOnProductMastersTable extends Migration
+class RenameProductIdToProductMasterIdOnSalesLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class ChangeImageStringToLongTextOnProductMastersTable extends Migration
      */
     public function up()
     {
-        Schema::table('product_masters', function (Blueprint $table) {
-            $table->longText('image')->change();
+        Schema::table('sales_logs', function (Blueprint $table) {
+            $table->renameColumn('product_id', 'product_master_id');
         });
     }
 
@@ -25,8 +25,8 @@ class ChangeImageStringToLongTextOnProductMastersTable extends Migration
      */
     public function down()
     {
-        Schema::table('product_masters', function (Blueprint $table) {
-            $table->longText('image')->change();
+        Schema::table('sales_logs', function (Blueprint $table) {
+            $table->renameColumn('product_master_id', 'product_id');
         });
     }
 }
