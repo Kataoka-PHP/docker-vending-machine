@@ -12,17 +12,17 @@ class StocksTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'product_id' => 1,
+            'product_master_id' => 1,
             'stock' => 2,
         ];
         DB::table('stocks')->insert($param);
         $param = [
-            'product_id' => 2,
+            'product_master_id' => 2,
             'stock' => 3,
         ];
         DB::table('stocks')->insert($param);
         $param = [
-            'product_id' => 3,
+            'product_master_id' => 3,
             'stock' => 4,
         ];
         DB::table('stocks')->insert($param);
