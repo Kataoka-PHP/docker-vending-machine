@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class SalesLogsTableSeeder extends Seeder
 {
@@ -12,18 +13,21 @@ class SalesLogsTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'product_id' => 1,
+            'product_master_id' => 1,
             'purchase_price' => 200,
+            'purchase_time' => Carbon::now(),
         ];
         DB::table('sales_logs')->insert($param);
         $param = [
-            'product_id' => 2,
+            'product_master_id' => 2,
             'purchase_price' => 420,
+            'purchase_time' => Carbon::now(),
         ];
         DB::table('sales_logs')->insert($param);
         $param = [
-            'product_id' => 3,
+            'product_master_id' => 3,
             'purchase_price' => 3800,
+            'purchase_time' => Carbon::now(),
         ];
         DB::table('sales_logs')->insert($param);
     }
