@@ -20,4 +20,6 @@ class ProductMaster extends Model
     {
         return $this->hasOne('App\SalesLog');
     }
+
+    public $timestamps = false;
 }
