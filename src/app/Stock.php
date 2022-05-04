@@ -10,4 +10,6 @@ class Stock extends Model
         'product_master_id',
         'stock',
     ];
+    
+    public $timestamps = false;
 }
