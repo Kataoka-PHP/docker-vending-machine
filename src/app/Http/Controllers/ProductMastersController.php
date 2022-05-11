@@ -16,7 +16,6 @@ class ProductMastersController extends Controller
      */
     public function index(Request $request)
     {
-        $product_masters = ProductMaster::with('stocks')->get();
         $input_amount = $request->session()->get('input_amount');
         $product_masters = ProductMaster::with('stocks')->get();
         return view('index', ['product_masters' => $product_masters, 'input_amount' => (int)$input_amount]);
