@@ -15,9 +15,7 @@
     </div>
 @elseif (session('returned_amount_message'))
     <div class="alert alert-success">
-        {{session('product_purchase_success_message')}}
-    </div>
-    <div class="alert alert-success">
+        {{session('product_purchase_success_message')}}<br>
         {{session('returned_amount_message')}}
     </div>
 @elseif (session('return_of_change'))
@@ -64,7 +62,11 @@
                                                     <input type="hidden" name="id" value="{{$product_master->id}}">
                                                     <input type="hidden" name="product_name" value="{{$product_master->product_name}}">
                                                     <div class="text-center">
-                                                        <input class="btn btn-primary border-dark" type="submit" name="product_price" value="{{$product_master->price}}">
+                                                        @if ($input_amount >=  $product_master->price)
+                                                            <input class="btn btn-primary border-dark" type="submit" name="product_price" value="{{$product_master->price}}">
+                                                        @else
+                                                            <input class="btn btn-primary border-dark" type="submit" name="product_price" value="{{$product_master->price}}" disabled="disabled">
+                                                        @endif
                                                     </div>
                                                     <input type="hidden" name="purchase_time" value="{{ \Carbon\Carbon::now() }}">
                                             </form>
@@ -79,18 +81,33 @@
         {{-- /製品購入エリア --}}
 
         {{-- 金額投入エリア --}}
-        <div class="text-right mr-3">
-            <form action="/" method="post">
-                @csrf
-                    <input class="btn btn-secondary border-dark" type="submit" name="returned_amount" value="返却">
-                    <input class="btn btn-warning border-dark" type="submit" name="10yen" value="￥10">
-                    <input class="btn btn-warning border-dark" type="submit" name="50yen" value="￥50">
-                    <input class="btn btn-warning border-dark" type="submit" name="100yen" value="￥100">
-                    <input class="btn btn-warning border-dark" type="submit" name="500yen" value="￥500">
-                    <input class="btn btn-warning border-dark" type="submit" name="1000yen" value="￥1000">
-                    <input class="btn btn-warning border-dark" type="submit" name="2000yen" value="￥2000">
-            </form>
-        </div>
+        @if ($input_amount === 9999)
+            <div class="text-right mr-3">
+                <form action="/" method="post">
+                    @csrf
+                        <input class="btn btn-secondary border-dark" type="submit" name="returned_amount" value="返却">
+                        <input class="btn btn-warning border-dark" type="submit" name="10yen" value="￥10" disabled="disabled">
+                        <input class="btn btn-warning border-dark" type="submit" name="50yen" value="￥50" disabled="disabled">
+                        <input class="btn btn-warning border-dark" type="submit" name="100yen" value="￥100" disabled="disabled">
+                        <input class="btn btn-warning border-dark" type="submit" name="500yen" value="￥500" disabled="disabled">
+                        <input class="btn btn-warning border-dark" type="submit" name="1000yen" value="￥1000" disabled="disabled">
+                        <input class="btn btn-warning border-dark" type="submit" name="2000yen" value="￥2000" disabled="disabled">
+                </form>
+            </div>
+        @else
+            <div class="text-right mr-3">
+                <form action="/" method="post">
+                    @csrf
+                        <input class="btn btn-secondary border-dark" type="submit" name="returned_amount" value="返却">
+                        <input class="btn btn-warning border-dark" type="submit" name="10yen" value="￥10">
+                        <input class="btn btn-warning border-dark" type="submit" name="50yen" value="￥50">
+                        <input class="btn btn-warning border-dark" type="submit" name="100yen" value="￥100">
+                        <input class="btn btn-warning border-dark" type="submit" name="500yen" value="￥500">
+                        <input class="btn btn-warning border-dark" type="submit" name="1000yen" value="￥1000">
+                        <input class="btn btn-warning border-dark" type="submit" name="2000yen" value="￥2000">
+                </form>
+            </div>
+        @endif
         {{-- /金額投入エリア --}}
 
         {{-- 投入金額表示エリア --}}

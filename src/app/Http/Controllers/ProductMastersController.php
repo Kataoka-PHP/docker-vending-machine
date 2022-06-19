@@ -54,7 +54,7 @@ class ProductMastersController extends Controller
                 $messageKey = 'input_amount_message';
                 $flashMessage = $input_amount.'円が投入されました';
             } else {
-                $request->session()->put('input_amount', 0);
+                $request->session()->put('input_amount', 9999);
                 $messageKey = 'input_amount_error_message';
                 $input_limit_amount = 9999;
                 $flashMessage = '投入金額の上限は、￥'.$input_limit_amount.'です';
@@ -102,7 +102,7 @@ class ProductMastersController extends Controller
         $request->session()->reflash();
         if ($input_amount > 0 && $input_amount < $cheapest_products) {
             $request->session()->put('input_amount', 0);
-            $message_key = 'おつりが返却されました';
+            $message_key = '残額が返却されました';
             return redirect('/')->with('returned_amount_message', $message_key);
         } else {
             return redirect('/');
