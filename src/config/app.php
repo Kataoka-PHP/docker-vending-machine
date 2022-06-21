@@ -13,6 +13,8 @@ return [
     |
     */
 
+    'log' => 'errorlog',
+
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
