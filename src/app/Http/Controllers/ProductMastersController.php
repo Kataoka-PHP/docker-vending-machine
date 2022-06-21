@@ -108,4 +108,12 @@ class ProductMastersController extends Controller
             return redirect('/');
         }
     }
+
+    public function processRestockingInventory(Request $request)
+    {
+        //ddd($request);
+        Stock::where('id', $request->id)->increment('stock', 3);
+        $message_key = '在庫が追加されました';
+        return redirect('/')->with('inventory_additional_message', $message_key);
+    }
 }

@@ -34,6 +34,10 @@
     <div class="alert alert-danger">
     {{session('product_purchase_error_message')}}
     </div>
+    @elseif (session('inventory_additional_message'))
+    <div class="alert alert-success">
+    {{session('inventory_additional_message')}}
+    </div>
 @endif
 {{-- /フラッシュメッセージ表示エリア --}}
 
@@ -55,9 +59,14 @@
                                         @if ($product_master->stocks->stock === 0)
                                             <div class="text-center">
                                                 <input class="btn btn-dark border-dark" type="submit" value=売切 disabled="disabled">
+                                                    <form action="/processRestockingInventory" method="post">
+                                                        @csrf
+                                                            <input class="btn btn-primary border-dark" type="submit" name="id" value=在庫+3>
+                                                            <input type="hidden" name="id" value="{{$product_master->id}}">
+                                                    </form>
                                             </div>
                                         @else
-                                            <form action="/processProductPurchase"  method="post">
+                                            <form action="/processProductPurchase" method="post">
                                                 @csrf
                                                     <input type="hidden" name="id" value="{{$product_master->id}}">
                                                     <input type="hidden" name="product_name" value="{{$product_master->product_name}}">
