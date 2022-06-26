@@ -79,6 +79,8 @@ class ProductMastersController extends Controller
             $sales_log->purchase_time = $request->purchase_time;
             $sales_log->save();
             Stock::where('id', $request->id)->decrement('stock');
+            //二重送信防止
+            $request->session()->regenerateToken();
             $request->session()->decrement('input_amount', $request->product_price);
             $message_key = $request->product_name.'を購入しました';
             $request->session()->flash('product_purchase_success_message', $message_key);
