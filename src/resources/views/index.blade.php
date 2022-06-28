@@ -72,9 +72,9 @@
                                                     <input type="hidden" name="product_name" value="{{$product_master->product_name}}">
                                                     <div class="text-center">
                                                         @if ($input_amount >=  $product_master->price)
-                                                            <input class="btn btn-primary border-dark" type="submit" name="product_price" value="{{$product_master->price}}">
+                                                            <input class="btn btn-primary border-dark" type="submit" name="product_price" value="￥{{$product_master->price}}">
                                                         @else
-                                                            <input class="btn btn-primary border-dark" type="submit" name="product_price" value="{{$product_master->price}}" disabled="disabled">
+                                                            <input class="btn btn-primary border-dark" type="submit" name="product_price" value="￥{{$product_master->price}}" disabled="disabled">
                                                         @endif
                                                     </div>
                                                     <input type="hidden" name="purchase_time" value="{{ \Carbon\Carbon::now() }}">
