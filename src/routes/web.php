@@ -15,3 +15,4 @@ Route::get('/', 'ProductMastersController@index');
 Route::post('/', 'ProductMastersController@processInputAmount');
 Route::post('/processProductPurchase', 'ProductMastersController@processProductPurchase');
 Route::get('processRemainingAmount', 'ProductMastersController@processRemainingAmount');
+Route::post('/processRestockingInventory', 'ProductMastersController@processRestockingInventory');
