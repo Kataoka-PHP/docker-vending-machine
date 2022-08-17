@@ -1,4 +1,5 @@
 @extends('layouts.common')
+
 @section('content')
 {{-- フラッシュメッセージ表示エリア --}}
 @if (session('input_amount_message'))
