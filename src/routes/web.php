@@ -13,6 +13,7 @@
 
 Route::get('/', 'ProductMastersController@index');
 Route::post('/', 'ProductMastersController@processInputAmount');
+Route::get('/ranking', 'ProductMastersController@processProductRanking');
 Route::post('/processProductPurchase', 'ProductMastersController@processProductPurchase');
 Route::get('processRemainingAmount', 'ProductMastersController@processRemainingAmount');
 Route::post('/processRestockingInventory', 'ProductMastersController@processRestockingInventory');
